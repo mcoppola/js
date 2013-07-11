@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<<meta charset = "utf-8">
+  	<title>wave 1</title>
+  	<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  	<canvas id='canvas' width="400" height="400"></canvas>
+  	<script src="utils.js"></script>
+  	<script src="road.js"></script>
+  	<script>
+  		window.onload = function () {
+  			var canvas = document.getElementById('canvas'),
+  			context = canvas.getContext('2d'),
+  			road = new Road();
+  			road2 = new Road(4, "#7A8B8B");
+  			road2.x = -30;
+  			road2.y = -30;
+  		
+
+  		(function drawFrame () {
+  			utils.getAnimationFrame();
+  			window.requestAnimationFrame(drawFrame, canvas);
+  			context.clearRect(0, 0, canvas.width, canvas.height);
+  			road.x += 1;
+  			road.y += 1;
+  			road2.x += 1;
+  			road2.y += 1;
+
+  			road.draw(context, canvas.width, canvas.height);
+  			road2.draw(context, canvas.width, canvas.height);
+
+  		}());
+  	};
+  	</script>
+  </body>
+  </html>
