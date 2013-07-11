@@ -8,7 +8,6 @@ var randoms = false;
 
 $(document).ready(function() {
 	
-		
 	if(!loaded){
 		reSetBackground();
 		setColors();
